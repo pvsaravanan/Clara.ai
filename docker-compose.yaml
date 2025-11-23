@@ -1,0 +1,22 @@
+services:
+  clara-ai:
+    container_name: clara-ai
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - data:/home/clara-ai/data
+      - uploads:/home/clara-ai/uploads
+    restart: unless-stopped
+
+volumes:
+  data:
+    name: 'clara-ai-data'
+  uploads:
+    name: 'clara-ai-uploads'
+
+networks:
+  default:
+    name: clara-ai-network
