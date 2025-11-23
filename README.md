@@ -1,80 +1,321 @@
-# Clara.ai 
 
-**Clara.ai** is your intelligent, privacy-first answer engine, designed to run locally on your hardware. It bridges the gap between the vast knowledge of the internet and your personal documents, leveraging the power of both local and cloud-based LLMs to deliver precise, well-cited answers.
 
-Imagine a customizable research assistant that respects your privacy, capable of understanding both the web and your uploaded files.
+# *Clara.ai*
 
-##  Core Capabilities
+***Privacy-First AI Answer Engine***
 
-- **Comprehensive Web Exploration**: Utilizing SearxNG, Clara.ai aggregates results from multiple sources to provide the most relevant answers, all while maintaining complete anonymity.
-- **Intelligent Document Parsing**: Upload your PDFs, DOCX, or TXT files and let Clara.ai analyze, summarize, and answer specific questions based on their content with exceptional accuracy.
-- **Model Agnostic**: Seamlessly integrate with your preferred AI models:
-  - **Local**: Run completely offline with Ollama (Llama 3, Mistral, Gemma).
-  - **Cloud**: Connect to top-tier providers like OpenAI (GPT-4o), Anthropic (Claude 3.5 Sonnet), Groq, and Google Gemini.
-- **Tailored Focus Modes**: Optimize your search experience for specific tasks:
-  - **Web Search**: For general inquiries and browsing.
-  - **Academic**: Dedicated search for scholarly articles and papers.
-  - **Writing Assistant**: Tools to aid in drafting and creative composition.
-  - **Wolfram Alpha**: Access computational intelligence and mathematical data.
-  - **YouTube**: Locate and summarize video content efficiently.
-  - **Reddit**: Dive into community discussions and forums.
-- **Adaptive Performance**: Switch between "Speed" for rapid responses or "Balanced" for in-depth research.
-- **Privacy by Design**: Your data never leaves your machine. Enjoy a tracking-free, ad-free experience.
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Version](https://img.shields.io/badge/version-1.11.2-green.svg)](https://github.com/pvsaravanan/Clara.ai)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
+
+[Features](#features) • [Quick Start](#quick-start) • [Installation](#installation) • [Documentation](#documentation) • [Contributing](#contributing)
+
+
+
+*Clara.ai is an intelligent, privacy-focused answer system designed to run entirely on your own hardware. It combines web search, document analysis, and local or cloud-based large language models (LLMs) to deliver accurate, well-cited responses—without compromising user data.*
+
+
+| Main Interface | Search Results |
+|:---:|:---:|
+| ![Main Interface](./public/screenshots/p1_small.png) | ![Search Results](./public/screenshots/p2_small.png) |
+
+
+
+## Table of Contents
+- [Overview](#Overview)
+- [Features](#Features)
+- [Quick Start](#QuickStart)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Deployment](#deployment)
+- [Technology Stack](#technology-stack)
+- [Documentation](#documentation)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+
+---
+
+## Overview
+
+*Clara.ai serves as a secure and customizable research assistant. It unifies knowledge from anonymous web search engines and user-provided documents, enabling powerful question answering and analysis while ensuring data remains local.*
+
+### Key Principles
+- *Privacy First: No tracking, ads, analytics, or external data collection.*
+- *Local First: Runs on your machine; optional cloud integrations.*
+- *Model Agnostic: Compatible with local LLMs (via Ollama) and all major cloud providers.*
+- *Search Integrated: Combines multiple sources through SearxNG for comprehensive and anonymized search results.*
+
+
+---
+
+## Features
+### Intelligent Search
+
+- *Multi-source aggregation using SearxNG*
+- *Domain-specific search modes:*
+  - *General web*
+  - *Academic literature*
+  - *Writing assistance*
+  - *Computational queries via Wolfram Alpha*
+  - *YouTube content extraction and summarization*
+  - *Reddit discussions and forums*
+
+### AI Model Integration
+
+- *Local Models (Ollama): Llama 3, Mistral, Gemma, and others*
+- *Cloud Providers: OpenAI, Anthropic, Google, Groq*
+
+### Document Processing
+
+- *Supports PDF, DOCX, and TXT*
+- *Document ingestion, parsing, summarization*
+- *Retrieval-based question answering*
+- *Vector embeddings for semantic search*
+
+### User Experience
+
+- *Built with Next.js 15 and Tailwind CSS*
+- *Light and dark themes*
+- *Real-time streaming responses*
+- *Persistent, searchable chat history*
+- *Responsive design for desktop and mobile*
+
+### Performance Modes
+
+- *Speed Mode: Fast, lightweight responses*
+- *Balanced Mode: More thorough research and detailed results*
+
+---
 
 ## Quick Start
 
-Clara.ai is engineered for effortless deployment using Docker.
+*Run Clara.ai using Docker in minutes.*
 
-### Prerequisites
-- Ensure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is installed and running.
+### Requirements
 
-### Installation Steps
+- *Docker Desktop*
+- *Minimum 4 GB RAM*
+- *Modern web browser*
 
-1.  **Get the Code**
-    Clone the repository to your local machine:
-    ```bash
-    git clone https://github.com/yourusername/clara-ai.git
-    cd clara-ai
-    ```
+### Installation (One-Command)
+```
+git clone https://github.com/pvsaravanan/Clara.ai.git
+cd Clara.ai
+docker-compose up -d --build
+```
+*Access the application at:*
+http://localhost:3000
 
-2.  **Launch the Application**
-    Build and start the services with a single command:
-    ```bash
-    docker-compose up -d --build
-    ```
-    *Note: The initial build process may take a few moments.*
 
-3.  **Start Exploring**
-    Open your web browser and navigate to:
-     **http://localhost:3000**
+## Installation
+### Option 1: Docker (Recommended)
+*Clone the repository:*
+```
+git clone https://github.com/pvsaravanan/Clara.ai.git
+cd Clara.ai
+```
 
-### Initial Setup
-Upon your first login, access the **Settings** menu to customize:
-- **LLM Provider**: Select from OpenAI, Anthropic, Groq, or Ollama.
-- **Embedding Model**: Choose a model for document processing (e.g., `text-embedding-3-small` or a local alternative).
+*Launch services:*
+```
+docker-compose up -d --build
+```
+*Open in browser:*
+```
+http://localhost:3000
+```
+### Option 2: Manual Setup
 
-##  Deployment Instructions
+*Requirements:*
+- *Node.js 18+*
+- *Yarn*
+- *SQLite 3*
+- *SearxNG instance*
 
-To host Clara.ai on a server or secondary machine:
+*Install dependencies:*
+```
+yarn install
+```
 
-1.  **Transfer**: Copy the entire project directory to the destination server.
-2.  **Prepare**: Verify that Docker and Docker Compose are installed.
-3.  **Deploy**: Run `docker-compose up -d --build` within the project folder.
-4.  **Access**: Connect via `http://<server-ip>:3000`.
+*Create environment configuration:*
+```
+cp .env.example .env
+```
+*Edit .env with your settings.*
 
-##  Future Roadmap
+*Start development server:*
+```
+yarn dev
+```
+---
 
-We are continuously evolving Clara.ai. Upcoming features include:
+## Configuration
 
-- [ ] **Voice Mode 2.0**: Seamless bidirectional voice interaction.
-- [ ] **Creative Studio**: Generate images directly within the chat interface.
-- [ ] **Deep Research Agent**: Autonomous, multi-step investigation for complex queries.
-- [ ] **Secure Cloud Sync**: Optional, encrypted synchronization across your devices.
-- [ ] **Extensible Plugin System**: Add capabilities like code execution, travel planning, and more.
+*On first launch, access the Settings panel to configure:*
 
-## Get Involved
+1. **LLM Provider**
 
-Clara.ai is an open-source initiative, and we value your contributions! Whether it's reporting a bug or suggesting a new feature, please feel free to open an issue.
+    - *Local: Ollama*
+
+    - *Cloud: OpenAI, Anthropic, Google, Groq*
+
+2. **Embedding Model**
+
+    - *Cloud: text-embedding-3-small*
+
+    - *Local: nomic-embed-text*
+
+3. **Search Engine**
+
+    - *SearxNG instance (provided by Docker Compose)*
+
+### Environment Variables
+```
+DATABASE_URL=file:./data/clara.db
+SEARXNG_API_URL=http://searxng:8080
+
+# Optional API keys
+OPENAI_API_KEY=
+ANTHROPIC_API_KEY=
+```
+
+
+## Deployment
+### Server Deployment
+
+1. *Transfer project files to your server.*
+
+2. *Install Docker and Docker Compose.*
+
+3. *Start services:*
+```
+docker-compose up -d --build
+```
+
+ 4. *Access via:*
+```
+http://<server-ip>:3000
+```
+### Custom Port
+
+*Edit docker-compose.yaml:*
+```
+ports:
+  - "8080:3000"
+```
 
 ---
-*Powered by Next.js, LangChain, and Docker.*
+
+## Technology Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript 5.9](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with [Headless UI](https://headlessui.com/)
+- **Database**: [SQLite](https://www.sqlite.org/) with [Drizzle ORM](https://orm.drizzle.team/)
+- **AI/LLM**: [LangChain](https://www.langchain.com/), [Ollama](https://ollama.ai/)
+- **Search**: [SearxNG](https://github.com/searxng/searxng)
+- **Deployment**: [Docker](https://www.docker.com/), Docker Compose
+- **UI Components**: [Lucide Icons](https://lucide.dev/), [Framer Motion](https://www.framer.com/motion/)
+
+---
+
+## Documentation
+- [ANALYSIS.md](./ANALYSIS.md) - *Project architecture and structure*
+- [DEPLOYMENT.md](./DEPLOYMENT.md) - *Detailed deployment instructions*
+- [FEATURE_SUGGESTIONS.md](./FEATURE_SUGGESTIONS.md) - *Upcoming features and roadmap*
+
+---
+
+## Roadmap
+
+*We're continuously evolving Clara.ai. Upcoming features include:*
+
+-  **Voice Mode 2.0**: *Bidirectional voice interaction for hands-free operation*
+-  **Creative Studio**: *AI image generation directly in chat*
+-  **Deep Research Agent**: *Multi-step autonomous research for complex queries*
+-  **Cloud Sync**: *Optional encrypted synchronization across devices*
+-  **Plugin System**: *Extensible architecture for custom capabilities*
+-  **Code Interpreter**: *Execute and test code snippets*
+-  **Mobile Apps**: *Native iOS and Android applications*
+
+*See [FEATURE_SUGGESTIONS.md](./FEATURE_SUGGESTIONS.md) for detailed feature proposals.*
+
+---
+
+## Contributing
+
+*We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.*
+
+### How to Contribute
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Guidelines
+
+- *Follow the existing code style and conventions*
+- *Write clear commit messages*
+- *Add tests for new features*
+- *Update documentation as needed*
+
+### Reporting Issues
+
+*Found a bug or have a suggestion? Please [open an issue](https://github.com/pvsaravanan/Clara.ai/issues) with:*
+- *Clear description of the problem or suggestion*
+- *Steps to reproduce (for bugs)*
+- *Expected vs actual behavior*
+- *Screenshots if applicable*
+
+---
+
+##  Troubleshooting
+
+### Common Issues
+
+**Port 3000 already in use:**
+```bash
+# Edit docker-compose.yaml and change the port
+ports:
+  - "3001:3000"
+```
+
+**Docker build fails:**
+```bash
+# Clear Docker cache and rebuild
+docker-compose down -v
+docker system prune -a
+docker-compose up -d --build
+```
+
+**SearxNG not responding:**
+```bash
+# Restart the SearxNG container
+docker-compose restart searxng
+```
+
+**Database locked error:**
+```bash
+# Stop all services and restart
+docker-compose down
+docker-compose up -d
+```
+
+*For more help, check existing [issues](https://github.com/pvsaravanan/Clara.ai/issues) or open a new one.*
+
+---
+
+## 📄 License
+
+*This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.*
+
+---
+
+*⭐ If you find Clara.ai helpful, please consider giving it a star on GitHub! ⭐*
+
+*Made with ❤️ by the open-source community*
