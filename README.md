@@ -1,5 +1,3 @@
-
-
 # *Clara.ai*
 
 ***Privacy-First AI Answer Engine***
@@ -26,7 +24,7 @@
 ## Table of Contents
 - [Overview](#Overview)
 - [Features](#Features)
-- [Quick Start](#QuickStart)
+- [Quick Start](#quick-start)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Deployment](#deployment)
@@ -310,7 +308,7 @@ docker-compose up -d
 
 ---
 
-## 📄 License
+## License
 
 *This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.*
 
