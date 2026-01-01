@@ -316,4 +316,4 @@ docker-compose up -d
 
 *⭐ If you find Clara.ai helpful, please consider giving it a star on GitHub! ⭐*
 
-*Made with ❤️ by the open-source community*
+*Made with ❤️ by the pvsaravanan and musfiramahjabeen*
